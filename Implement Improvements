@@ -1,0 +1,11 @@
+// Example of code splitting with dynamic imports
+// Instead of :
+import { heavyFeature } from'./heavyFeature';
+
+// Use:
+if (userNeedsFeature) {
+  import('./heavyFeature').then(module => {
+    const { heavyFeature } = module;
+    heavyFeature();
+    });
+  }
